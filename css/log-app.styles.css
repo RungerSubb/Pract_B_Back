@@ -1,0 +1,137 @@
+.base {
+    max-width: 2000px;
+    max-height: 1200px;
+    width: 100%;
+    height: 100%;
+
+
+    position:relative;
+
+}
+.base > div > div{
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background: white;
+}
+.base > div{
+
+    width:100%;
+    padding-top:60%;
+}
+.exp{
+    display: inline-block;
+
+    max-width: 400px;
+    max-height: 200px;
+
+    width: 20%;
+    height: 20%;
+}
+.high-logo {
+    max-width: 1400px;
+    max-height: 475px;
+
+    width: 60%;
+    height: 33%;
+
+}
+.up-base {
+    max-width: 2000px;
+    max-height: 200px;
+    text-align: right;
+}
+.down-base {
+    max-width: 2000px;
+    max-height: 200px;
+    text-align: center
+
+}
+.dwn{
+    max-width: 2000px;
+    max-height: 200px;
+
+    width: 100%;
+    height: 30%;
+}
+.str{
+    font-size: 1.7vmin;
+}
+.crt{
+    font-size: 1.7vmin;
+}
+.log-pass{
+
+    font-size: 1.7vmin;
+}
+.field-inp{
+    background-color: #fff;
+
+    font-size: 1.7vmin;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    max-width: 1000px;
+    max-height:50px;
+
+
+    width: 50%;
+    height: 5%;
+
+}
+
+.step{
+    font-size: 1vmin;
+}
+.create-acc{
+    font-size: 1.3vmin ;
+
+}
+.str{
+    max-height: 50px;
+    max-width: 2000px;
+
+    height: 2%;
+    width: 100%;
+}
+.sign-in {
+
+    max-height: 125px;
+    max-width: 300px;
+
+    height: auto;
+    width: 20%;
+
+    display: inline-block;
+    font-size: 1vmin;
+    color: rgba(255,255,255,.9);
+    text-shadow: #2e7ebd 0 1px 2px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.1;
+    white-space: pre-line;
+    padding: .7em 0;
+    border: 1px solid;
+    border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+    border-radius: 6px;
+    outline: none;
+    background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+    box-shadow: inset rgba(255,255,255,.5) 1px 1px;
+}
+.sign-in:first-line{
+    font-size: 170%;
+    font-weight: 700;
+}
+.sign-in:hover {
+    color: rgb(255,255,255);
+    background-image: linear-gradient(#9dc7e7, #74afdd 50%, #378bce);
+}
+.sign-in:active {
+    color: rgb(255,255,255);
+    border-color: #2970a9;
+    background-image: linear-gradient(#5796c8, #6aa2ce);
+    box-shadow: none;
+}

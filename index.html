@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Spiral</title>
+    <link rel="stylesheet" href="css/log-app.styles.css" type="text/css">
+
+    <link rel="shortcut icon" href="/resourses/spiral_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.styles.css" type="text/css">
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+
+            background: black;
+
+            text-align: center;
+            align-items: center;
+        }
+
+        .load{
+            max-height: 30px;
+            max-width: 30px;
+            min-height: 30px;
+            min-width: 30px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .allbase{
+            position: absolute;
+            width: 100%;
+            top: 0; left: 0;
+            max-width: 2175px;
+            max-height: 2000px;
+
+
+            width: 65%;
+            height: 60%;
+
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .cover{
+            position: absolute;
+            width: 100%;
+            top: 0; left: 0;
+            max-width: 2000px;
+            max-height: 2000px;
+
+            background: white;
+            width: 43%;
+            height: 43%;
+
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            margin: 0 auto;
+
+        }
+        .loader{
+            position: absolute;
+            width: 100%;
+            top: 0; left: 0;
+            max-width: 2000px;
+            max-height: 2000px;
+
+            width: 43%;
+            height: 43%;
+
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            margin: 0 auto;
+        }
+
+        .base {
+            max-width: 2000px;
+            max-height: 1200px;
+            width: 100%;
+            height: 100%;
+
+
+            position:relative;
+
+        }
+        .base > div > div{
+            position:absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            background: white;
+        }
+        .base > div{
+
+            width:100%;
+            padding-top:60%;
+        }
+        .exp{
+            display: inline-block;
+
+            max-width: 400px;
+            max-height: 200px;
+
+            width: 20%;
+            height: 20%;
+        }
+        .high-logo {
+            max-width: 1400px;
+            max-height: 475px;
+
+            width: 60%;
+            height: 33%;
+
+        }
+        .up-base {
+            max-width: 2000px;
+            max-height: 200px;
+            text-align: right;
+        }
+        .down-base {
+            max-width: 2000px;
+            max-height: 200px;
+            text-align: center
+
+        }
+        .dwn{
+            max-width: 2000px;
+            max-height: 200px;
+
+            width: 100%;
+            height: 30%;
+        }
+        .str{
+            font-size: 1.7vmin;
+        }
+        .crt{
+            font-size: 1.7vmin;
+        }
+        .log-pass{
+
+            font-size: 1.7vmin;
+        }
+        .field-inp{
+            background-color: #fff;
+
+            font-size: 1.7vmin;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+
+            max-width: 1000px;
+            max-height:50px;
+
+
+            width: 50%;
+            height: 5%;
+
+        }
+
+        .step{
+            font-size: 1vmin;
+        }
+        .create-acc{
+            font-size: 1.3vmin ;
+
+        }
+        .str{
+            max-height: 50px;
+            max-width: 2000px;
+
+            height: 2%;
+            width: 100%;
+        }
+        .sign-in {
+
+            max-height: 125px;
+            max-width: 300px;
+
+            height: auto;
+            width: 20%;
+
+            display: inline-block;
+            font-size: 1vmin;
+            color: rgba(255,255,255,.9);
+            text-shadow: #2e7ebd 0 1px 2px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 1.1;
+            white-space: pre-line;
+            padding: .7em 0;
+            border: 1px solid;
+            border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+            border-radius: 6px;
+            outline: none;
+            background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+            box-shadow: inset rgba(255,255,255,.5) 1px 1px;
+        }
+        .sign-in:first-line{
+            font-size: 170%;
+            font-weight: 700;
+        }
+        .sign-in:hover {
+            color: rgb(255,255,255);
+            background-image: linear-gradient(#9dc7e7, #74afdd 50%, #378bce);
+        }
+        .sign-in:active {
+            color: rgb(255,255,255);
+            border-color: #2970a9;
+            background-image: linear-gradient(#5796c8, #6aa2ce);
+            box-shadow: none;
+        }
+
+    </style>
+
+    <script>
+        window.onload = function(){
+
+            var btn = document.getElementById('btn');
+            var out = document.getElementById('out');
+            var ses = document.getElementById('ses');
+
+            var inputs = document.getElementsByTagName('input');
+
+            btn.addEventListener('click', function(){
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'login');
+
+                var userData = {
+                    username: inputs[0].value,
+                    password: inputs[1].value
+                }
+
+                xhr.setRequestHeader('Content-Type', 'application/json')
+                xhr.send(JSON.stringify(userData));
+
+                xhr.onload = function() {
+                    alert(this.responseText);
+                };
+
+                xhr.onerror = function() {
+                    alert('server error!');
+                }
+
+            });
+
+            ses.addEventListener('click', function(){
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/session');
+
+                xhr.send();
+
+                xhr.onload = function() {
+                    alert(this.responseText);
+                };
+
+                xhr.onerror = function() {
+                    alert('server error!');
+                }
+
+            })
+
+            out.addEventListener('click', function(){
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/logout');
+
+                xhr.send();
+
+                xhr.onload = function() {
+                    alert(this.responseText);
+                };
+
+                xhr.onerror = function() {
+                    alert('server error!');
+                }
+
+            })
+
+
+            var pgs = document.querySelector('.btns');
+
+            pgs.onclick = function(e){
+                if(!e.target.dataset.page) return false;
+                var target = e.target.dataset.page;
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/' + target);
+                xhr.send();
+                xhr.onload = function() {
+                    window.location.href = "/" + target;
+                };
+            };
+
+
+        }
+    </script>
+</head>
+
+
+<body>
+<div class="cover">
+
+
+    <div class="all-base">
+        <div class="up-base">
+
+        </div>
+        <div class="base">
+            <div>
+                <div>
+
+
+
+                    <h1 class="log-pass">Login: &nbsp; &nbsp; &nbsp; <input class="field-inp" type="text" id="login"></h1>
+                    <h1 class="log-pass" >Password: <input class="field-inp" type="password"  id="password"></h1>
+
+                    <input type="button" value="Sign in" class="sign-in" id="btn">
+                    <p></p>
+                    <input type="button" value="Session" class="sign-in" id="ses">
+                    <p></p>
+                    <input type="button" value="Sign out" class="sign-in" id="out">
+
+                    <p></p>
+
+<div class="pannel btns">
+                    <button data-page="admin" class="sign-in" >Admin</button>
+                    <button data-page="user" class="sign-in" >User</button>
+                    <button data-page="guest" class="sign-in" >Guest</button>
+</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="str">
+
+        </div>
+        <div class="down-base" scr>
+
+            </cl-image>
+        </div>
+    </div>
+</div>
+</body>
+</html>

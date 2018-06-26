@@ -1,0 +1,68 @@
+.load{
+    max-height: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    min-width: 30px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+.allbase{
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    max-width: 2175px;
+    max-height: 2000px;
+
+    background: white;
+    width: 65%;
+    height: 60%;
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.cover{
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    max-width: 2000px;
+    max-height: 2000px;
+
+    width: 43%;
+    height: 43%;
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+
+}
+.loader{
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    max-width: 2000px;
+    max-height: 2000px;
+
+    width: 43%;
+    height: 43%;
+
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+}
